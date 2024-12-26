@@ -1,0 +1,52 @@
+[package]
+name = "diligence-test1"
+edition.workspace = true
+rust-version.workspace = true
+version = "0.1.0"
+authors = ["Erik McClure <erikm@fundament.software>, Sonata"]
+homepage.workspace = true
+license.workspace = true
+links = "diligence-test1"
+
+[features]
+tracing = []
+
+[lib]
+doctest = false
+path = "lib.rs"
+
+[[bin]]
+name = "diligence-test1-module"
+path = "main.rs"
+
+[dependencies]
+once_cell = "1.10.0"
+futures = "0.3"
+capstone.workspace = true
+capstone-futures.workspace = true
+capstone-rpc.workspace = true
+capstone-macros.workspace = true
+tokio.workspace = true
+tokio-util.workspace = true
+tracing-subscriber.workspace = true
+tracing.workspace = true
+keystone.workspace = true
+serenity = { version = "0.11", default-features = false, features = ["client", "gateway", "rustls_backend", "model"] }
+#tokio = { version = "1.0", features = ["macros", "rt-multi-thread"] }
+#once_cell = {version = "1.15.0"}
+chrono = {version="0.4"}
+chrono-tz = {version="0.7.0"}
+csv = {version="1.1.6"}
+#rusqlite = "0.31.0"
+
+[dev-dependencies]
+eyre.workspace = true
+tempfile.workspace = true
+async-byte-channel.workspace = true
+keystone = { path = "../../core", features = ["testing"] }
+
+[build-dependencies]
+capstone-gen.workspace = true
+tempfile.workspace = true
+eyre.workspace = true
+keystone-build.workspace = true
