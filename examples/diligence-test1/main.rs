@@ -1070,32 +1070,22 @@ async fn kill_spin() {
 
 impl keystone::Module<diligence_capnp::config::Owned> for DiligenceImpl {
     async fn stop(&self) -> capnp::Result<()> {
-        sleep(Duration::from_millis(100)).await;
         eprintln!("module stop was called!!");
-        sleep(Duration::from_millis(100)).await;
         // First, send kill signal if we still have a sender
         //
         if let Some(kill_tx) = self.kill_tx.borrow_mut().take() {
-            sleep(Duration::from_millis(100)).await;
             eprintln!("Sending kill signal.");
-            sleep(Duration::from_millis(100)).await;
             let _ = kill_tx.send(()); // ignoring error
             eprintln!("Kill signal sent.");
-            sleep(Duration::from_millis(100)).await;
         }
 
         // Next, wait for the spin_handle to exit so it doesn't keep the runtime alive
         if let Some(handle) = self.spin_handle.borrow_mut().take() {
-            sleep(Duration::from_millis(100)).await;
             eprintln!("Waiting for background task to finish...");
-            sleep(Duration::from_millis(100)).await;
             let _ = handle.await;
-            sleep(Duration::from_millis(100)).await;
             eprintln!("Background task joined.");
-            sleep(Duration::from_millis(100)).await;
         }
 
-        sleep(Duration::from_millis(100)).await;
         eprintln!("exiting module stop");
         sleep(Duration::from_millis(1000)).await;
         eprintln!("1000 ms have elapsed after sending kill signal");
