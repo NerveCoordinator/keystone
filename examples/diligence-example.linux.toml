@@ -2,4 +2,4 @@
 [[modules]]
 name = "Hello Diligence"
 path = "../target/debug/diligence-test1-module"
-config = { greeting = "Bonjour" }
+config = { sqlite = [ "@sqlite" ], inner = [ "@keystone", "initCell", {id = "InnerTableRef"}, "result" ] }

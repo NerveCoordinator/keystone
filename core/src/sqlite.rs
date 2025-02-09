@@ -1913,6 +1913,12 @@ pub struct Col {
     debruinin_level: u16,
     name: String,
 }
+impl Col {
+    pub fn new(debruinin_level: u16, name: String) -> Self {
+        Col { debruinin_level, name }
+    }
+}
+
 #[derive(Clone)]
 pub enum DBAnyBindings {
     UNINITIALIZED,

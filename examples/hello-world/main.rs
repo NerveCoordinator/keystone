@@ -44,8 +44,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             eprintln!("0 ms have elapsed");
             sleep(Duration::from_millis(100)).await;
             eprintln!("100a ms have elapsed");
-            sleep(Duration::from_millis(100)).await;
-            eprintln!("200b ms have elapsed");
+            sleep(Duration::from_millis(1900)).await;
+            eprintln!("2000b ms have elapsed");
+            sleep(Duration::from_millis(2000)).await;
+            eprintln!("4000c ms have elapsed");
         },
     )
     .await
