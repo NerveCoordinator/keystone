@@ -1578,9 +1578,9 @@ impl keystone::Module<diligence_capnp::config::Owned> for DiligenceImpl {
         //results.get().init_reply().set_message(message[..].into());
 
         sleep(Duration::from_millis(100)).await;
-        eprintln!("0 ms have elapsed inside NEW - end");
+        eprintln!("end of NEW - end");
         sleep(Duration::from_millis(2000)).await;
-        eprintln!("2000 ms have elapsed inside NEW - end");
+        eprintln!("2000 ms after end of NEW - end");
             //sleep(Duration::from_millis(100000)).await;
             //eprintln!("100000 ms have elapsed inside NEW");
         sleep(Duration::from_millis(100)).await;
@@ -1643,13 +1643,14 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             tracing::debug!("tracing debug1 trace called!");
             */
             //sleep(Duration::from_millis(100)).await;
-            eprintln!("0 ms have elapsed");
+            eprintln!("0 ms have elapsed - start");
             sleep(Duration::from_millis(100)).await;
-            eprintln!("100 ms have elapsed");
+            eprintln!("100 ms have elapsed - start");
             sleep(Duration::from_millis(1000)).await;
-            eprintln!("1000 ms have elapsed");
+            eprintln!("1000 ms have elapsed - start");
             sleep(Duration::from_millis(1000)).await;
-            eprintln!("2000 ms have elapsed");
+            eprintln!("2000 ms have elapsed - start");
+            sleep(Duration::from_millis(100)).await;
         },
     )
     .await
