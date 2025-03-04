@@ -1915,7 +1915,10 @@ pub struct Col {
 }
 impl Col {
     pub fn new(debruinin_level: u16, name: String) -> Self {
-        Col { debruinin_level, name }
+        Col {
+            debruinin_level,
+            name,
+        }
     }
 }
 #[derive(Clone)]
